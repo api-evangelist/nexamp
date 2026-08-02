@@ -1,0 +1,67 @@
+generated: '2026-08-01'
+method: probed
+source: live HTTP probes of every Nexamp host discovered in this pass
+summary: >-
+  No /.well-known/ discovery document is published on any Nexamp host. Every canonical
+  path returns 404 on the marketing site (www.nexamp.com, Cloudflare-fronted), 404 on
+  the Zendesk help centre (help.nexamp.com), and 401 behind Microsoft Entra ID on the
+  undocumented API host (api.nexamp.com). The subscriber portal (community.nexamp.com)
+  is an Azure Static Web Apps single-page app whose catch-all route answers HTTP 200
+  with the application HTML shell for EVERY path — those 200s are recorded as
+  `false_positive: spa-catch-all` and are NOT discovery documents.
+hosts:
+- host: https://www.nexamp.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://nexamp.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://api.nexamp.com
+  note: >-
+    TLS certificate expired 2024-05-14; probed with certificate verification disabled.
+    All responses are 401 (Microsoft Entra ID protected).
+  documents:
+  - {path: /.well-known/security.txt, status: 401}
+  - {path: /.well-known/openid-configuration, status: 401}
+  - {path: /.well-known/agent-card.json, status: 401}
+- host: https://community.nexamp.com
+  note: Azure Static Web Apps SPA catch-all — every path returns 200 with the HTML shell.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, false_positive: spa-catch-all}
+  - {path: /.well-known/agent-card.json, status: 200, false_positive: spa-catch-all}
+  - {path: /.well-known/agent.json, status: 200, false_positive: spa-catch-all}
+  - {path: /llms.txt, status: 200, false_positive: spa-catch-all}
+- host: https://portal.nexamp.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /llms.txt, status: 404}
+- host: https://help.nexamp.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+documents: []
+x-evidence:
+  fetched: '2026-08-01'
+  hosts_probed: [www.nexamp.com, nexamp.com, api.nexamp.com, community.nexamp.com,
+    portal.nexamp.com, help.nexamp.com, developer.nexamp.com, docs.nexamp.com]
+  hosts_not_resolving: [developer.nexamp.com, docs.nexamp.com, status.nexamp.com,
+    trust.nexamp.com, security.nexamp.com]
+  result: none-published

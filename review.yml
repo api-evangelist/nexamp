@@ -1,0 +1,72 @@
+name: Nexamp
+description: API Evangelist contract-discovery review of Nexamp's public surface.
+url: https://raw.githubusercontent.com/api-evangelist/nexamp/refs/heads/main/review.yml
+created: '2026-08-01'
+modified: '2026-08-01'
+reviews:
+- date: '2026-08-01'
+  rating: 0
+  summary: >-
+    Nexamp publishes no public API program. Full STEP 0b contract discovery was run against
+    every host that resolves for the nexamp.com domain and every plausible developer host,
+    and every probe missed. There is no OpenAPI/Swagger document, no GraphQL endpoint, no
+    AsyncAPI or webhook catalogue, no MCP server, no A2A agent card, no /.well-known/
+    discovery surface, no llms.txt, no SDK in any public package registry, and no
+    developer/docs subdomain (developer.nexamp.com and docs.nexamp.com do not resolve at
+    all). The Nexamp GitHub organisation (github.com/Nexamp, org id 38884452, created as a
+    real org with the nexamp.com blog URL set) exists but publishes ZERO public
+    repositories. Nexamp is a vertically integrated clean-energy developer/operator whose
+    software is delivered as end-user products — the community.nexamp.com subscriber portal
+    and the portal.nexamp.com Decarbonization Platform — not as a developer platform.
+    KEY FINDING — an undocumented API host does exist: api.nexamp.com resolves to Azure App
+    Service (nexamp-api-production.azurewebsites.net). Its root and most paths 302 to
+    login.microsoftonline.com, i.e. it is gated behind Microsoft Entra ID; /openapi.json,
+    /swagger.json, /swagger/v1/swagger.json and every /.well-known/ path return 401. It is
+    an internal/partner API, not a public one. It also serves an EXPIRED TLS certificate:
+    the Sectigo-issued wildcard CN=*.nexamp.com expired 2024-05-14, so every probe of that
+    host required certificate verification to be disabled. That is a real, currently-live
+    security defect on a production Nexamp host and is recorded in
+    security/nexamp-domain-security.yml.
+    NOTE ON FALSE POSITIVES — community.nexamp.com is an Azure Static Web Apps SPA whose
+    catch-all route answers HTTP 200 with the application HTML shell for every path,
+    including /.well-known/agent-card.json and /llms.txt. Those 200s are NOT documents and
+    were explicitly rejected; no agent card was written.
+    Per the no-fabrication rule, no OpenAPI, AsyncAPI, agent card, MCP manifest, packages
+    file, or scopes file was authored. Re-evaluate if Nexamp launches a partner/developer
+    programme for its Decarbonization Platform.
+  endpoints:
+  - {url: 'https://www.nexamp.com/', status: 200}
+  - {url: 'https://www.nexamp.com/openapi.json', status: 404}
+  - {url: 'https://www.nexamp.com/swagger.json', status: 404}
+  - {url: 'https://www.nexamp.com/api-docs', status: 404}
+  - {url: 'https://www.nexamp.com/llms.txt', status: 404}
+  - {url: 'https://www.nexamp.com/.well-known/agent-card.json', status: 404}
+  - {url: 'https://www.nexamp.com/.well-known/agent.json', status: 404}
+  - {url: 'https://www.nexamp.com/.well-known/security.txt', status: 404}
+  - {url: 'https://www.nexamp.com/security', status: 404}
+  - {url: 'https://www.nexamp.com/responsible-disclosure', status: 404}
+  - {url: 'https://www.nexamp.com/status', status: 404}
+  - {url: 'https://www.nexamp.com/sitemap.xml', status: 200}
+  - url: 'https://api.nexamp.com/'
+    status: 200
+    note: >-
+      Expired TLS cert (probed with verification disabled); returns a Microsoft Entra ID
+      (login.microsoftonline.com) sign-in POST form, not an API response.
+  - {url: 'https://api.nexamp.com/openapi.json', status: 401}
+  - {url: 'https://api.nexamp.com/swagger.json', status: 401}
+  - {url: 'https://api.nexamp.com/swagger/v1/swagger.json', status: 401}
+  - {url: 'https://api.nexamp.com/.well-known/agent-card.json', status: 401}
+  - url: 'https://community.nexamp.com/.well-known/agent-card.json'
+    status: 200
+    note: SPA catch-all returning HTML — rejected as a false positive, not an agent card.
+  - {url: 'https://portal.nexamp.com/', status: 200, note: Nexamp Decarbonization Platform login}
+  - {url: 'https://portal.nexamp.com/openapi.json', status: 404}
+  - {url: 'https://help.nexamp.com/hc/en-us', status: 200, note: Zendesk help centre}
+  - {url: 'https://api.github.com/orgs/Nexamp/repos', status: 200, note: 0 public repositories}
+  - {url: 'https://registry.npmjs.org/-/v1/search?text=nexamp', status: 200, note: 0 packages}
+  - {url: 'https://pypi.org/simple/nexamp/', status: 404}
+  - {url: 'https://developer.nexamp.com/', status: 0, note: DNS NXDOMAIN}
+  - {url: 'https://docs.nexamp.com/', status: 0, note: DNS NXDOMAIN}
+  - {url: 'https://status.nexamp.com/', status: 0, note: DNS NXDOMAIN}
+  - {url: 'https://trust.nexamp.com/', status: 0, note: DNS NXDOMAIN}
+  - {url: 'https://security.nexamp.com/', status: 0, note: DNS NXDOMAIN}

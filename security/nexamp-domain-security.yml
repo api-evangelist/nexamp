@@ -1,0 +1,55 @@
+generated: '2026-08-01'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.nexamp.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 13 12:58:07 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: community.nexamp.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 12 23:59:59 2027 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: portal.nexamp.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 13 12:58:07 2026 GMT
+  note: Nexamp Decarbonization Platform login (Cloudflare-fronted); manually probed,
+    not an apis.yml Website/Portal host at probe time
+- host: api.nexamp.com
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 2592000
+  cert_subject: CN=*.nexamp.com
+  cert_issuer: Sectigo RSA Domain Validation Secure Server CA
+  cert_not_before: Apr 14 00:00:00 2023 GMT
+  cert_expires: May 14 23:59:59 2024 GMT
+  cert_valid: false
+  finding: >-
+    EXPIRED TLS CERTIFICATE — the wildcard *.nexamp.com certificate served by
+    api.nexamp.com expired 2024-05-14. Any standards-compliant TLS client fails
+    the handshake (curl reports an "SSL certificate problem - certificate has
+    expired" error) unless verification is disabled. Observed 2026-08-01.
+  note: >-
+    Undocumented API host (Azure App Service, nexamp-api-production.azurewebsites.net).
+    Root and most paths 302 to login.microsoftonline.com (Microsoft Entra ID);
+    /openapi.json, /swagger.json and /.well-known/* return 401. Manually probed with
+    certificate verification disabled; not advertised as a public developer API.
+domains:
+- domain: nexamp.com
+  dnssec: true
+  caa:
+  - 0 issuewild "comodoca.com"
+  - 0 issuewild "digicert.com; cansignhttpexchanges=yes"
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "ssl.com"
+  - 0 issue "comodoca.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: none

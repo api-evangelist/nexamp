@@ -1,17 +1,37 @@
 aid: nexamp
 name: Nexamp
-description: 'Nexamp is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Nexamp is a Boston-based clean energy company, founded in 2007 by two
+  U.S. Army veterans, that develops, builds, owns and operates distributed solar generation
+  and battery storage across the United States and is one of the country''s largest
+  fully integrated community solar providers. The company runs end-to-end: project
+  development and acquisition, engineering and design, construction, asset operations,
+  and subscriber management for residential and commercial community solar customers,
+  alongside power purchase agreements, land leasing for solar farm hosts, energy storage,
+  and standalone development and asset-management services. Customer-facing software
+  is delivered through the community.nexamp.com subscriber portal and the portal.nexamp.com
+  Decarbonization Platform. As of the 2026-08-01 enrichment pass Nexamp publishes no
+  public developer program, API documentation, SDKs, or machine-readable API contract;
+  the api.nexamp.com host that exists is gated behind Microsoft Entra ID and is not
+  publicly documented.'
+image: https://cdn.sanity.io/images/t3nokka8/production/e0f411457e5f4d4f963fda40c08a8c148d36f22e-508x102.svg
 url: https://raw.githubusercontent.com/api-evangelist/nexamp/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
+x-tier: profiled
 x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-01'
 modified: '2026-08-01'
 tags:
 - Company
+- Energy
+- Solar
+- Clean Energy
+- Community Solar
+- Renewable Energy
+- Energy Storage
+- Sustainability
+- Utilities
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +39,40 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nexamp-domain-security.yml
+- type: LLMsTxt
+  url: llms/nexamp-llms.txt
+- type: Review
+  url: review.yml
 - type: Website
+  url: https://www.nexamp.com/
+- type: Portal
+  url: https://community.nexamp.com/
+- type: Login
+  url: https://community.nexamp.com/
+- type: Support
+  url: https://www.nexamp.com/contact-us
+- type: HelpCenter
+  url: https://help.nexamp.com/hc/en-us
+- type: Blog
+  url: https://www.nexamp.com/blog
+- type: TermsOfService
+  url: https://www.nexamp.com/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.nexamp.com/privacy-policy
+- type: GitHubOrganization
+  url: https://github.com/Nexamp
+- type: About
+  url: https://www.nexamp.com/about-us
+- type: Careers
+  url: https://www.nexamp.com/careers
+- type: Press
+  url: https://www.nexamp.com/media
+- type: SecondaryMarket
   url: https://forgeglobal.com/nexamp_stock/
+x-enrichment:
+  date: '2026-08-01'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v1
