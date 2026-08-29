@@ -13,6 +13,17 @@ description: 'Nexamp is a Boston-based clean energy company, founded in 2007 by 
   public developer program, API documentation, SDKs, or machine-readable API contract;
   the api.nexamp.com host that exists is gated behind Microsoft Entra ID and is not
   publicly documented.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.sanity.io/images/t3nokka8/production/e0f411457e5f4d4f963fda40c08a8c148d36f22e-508x102.svg
 url: https://raw.githubusercontent.com/api-evangelist/nexamp/refs/heads/main/apis.yml
 x-type: company
