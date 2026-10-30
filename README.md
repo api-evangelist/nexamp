@@ -64,33 +64,84 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Nexamp is a Boston-based clean energy company, founded in 2007 by two U.S. Army veterans, that develops, builds, owns and operates distributed solar generation and battery storage across the United States and is one of the country's largest fully integrated community solar providers. It runs end-to-end — project development and acquisition, engineering and design, construction, asset operations, and subscriber management — alongside power purchase agreements, land leasing for solar farm hosts, energy storage, and standalone development and asset-management services.
+Nexamp is a Boston-based clean energy company, founded in 2007 by two U.S. Army veterans, that develops, builds, owns and operates distributed solar generation and battery storage across the United States and is one of the country's largest fully integrated community solar providers. The company runs end-to-end: project development and acquisition, engineering and design, construction, asset operations, and subscriber management for residential and commercial community solar customers, alongside power purchase agreements, land leasing for solar farm hosts, energy storage, and standalone development and asset-management services. Customer-facing software is delivered through the community.nexamp.com subscriber portal and the portal.nexamp.com Decarbonization Platform. As of the 2026-08-01 enrichment pass Nexamp publishes no public developer program, API documentation, SDKs, or machine-readable API contract; the api.nexamp.com host that exists is gated behind Microsoft Entra ID and is not publicly documented.
 
-- Website — https://www.nexamp.com/
-- Community portal — https://community.nexamp.com/
-- Decarbonization Platform — https://portal.nexamp.com/
-- Help Center — https://help.nexamp.com/hc/en-us
-- Secondary-market listing — https://forgeglobal.com/nexamp_stock/
+**Areas:** Company · Energy · Solar · Clean Energy · Community Solar · Renewable Energy · Energy Storage · Sustainability · Utilities
 
-## API surface
+## Nexamp on APIs.io
 
-**Nexamp publishes no public API.** Full contract discovery on 2026-08-01 found no OpenAPI/Swagger,
-no GraphQL, no AsyncAPI or webhook catalogue, no MCP server, no A2A agent card, no `/.well-known/`
-documents, no `llms.txt`, and no SDK in any public package registry. `developer.nexamp.com` and
-`docs.nexamp.com` do not resolve, and the `Nexamp` GitHub organisation has zero public repositories.
+Everything profiled for Nexamp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nexamp/](https://apis.io/providers/nexamp/)** — or go straight to one of the APIs or properties below.
 
-An undocumented API host — `api.nexamp.com`, on Azure App Service — is gated behind Microsoft
-Entra ID and **serves a TLS certificate that expired on 2024-05-14**. It is an internal/partner
-surface, not an integration target.
+### Published properties
 
-Every probe and HTTP status is recorded in [`review.yml`](review.yml).
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Artifacts
+#### Security (1)
 
-| Artifact | File |
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nexamp Domain Security](https://apis.io/security/nexamp/nexamp-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.nexamp.com/)
+- [Support](https://www.nexamp.com/contact-us)
+- [Blog](https://www.nexamp.com/blog)
+- [Terms of service](https://www.nexamp.com/terms-of-use)
+- [Privacy policy](https://www.nexamp.com/privacy-policy)
+- [GitHub](https://github.com/Nexamp)
+
+## API Evangelist rating
+
+**Kin Score 13.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| Provider index | [`apis.yml`](apis.yml) |
-| Contract-discovery review | [`review.yml`](review.yml) |
-| Domain security (TLS/HSTS/DNSSEC/CAA/SPF/DMARC) | [`security/nexamp-domain-security.yml`](security/nexamp-domain-security.yml) |
-| `/.well-known/` probe index | [`well-known/nexamp-well-known.yml`](well-known/nexamp-well-known.yml) |
-| llms.txt | [`llms/nexamp-llms.txt`](llms/nexamp-llms.txt) |
+| Discoverability | 56.3 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.5** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nexamp/](https://apis.io/providers/nexamp/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Nexamp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nexamp/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
